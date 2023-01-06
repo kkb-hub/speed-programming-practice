@@ -8,6 +8,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json.Serialization;
 using Microsoft.Extensions.Hosting;
+using speed_programming_practice.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace speed_programming_practice
 {
@@ -27,6 +29,7 @@ namespace speed_programming_practice
             services
                 .AddRazorPages()
                 .AddJsonOptions(options => options.JsonSerializerOptions.PropertyNamingPolicy = null);
+            services.AddDbContext<Entity_ADbContext>(options => options.UseSqlServer(@"Data Source=JC73751\SQLEXPRESS;Initial Catalog=TestForSP1;User ID=sa;Password=88888888;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
