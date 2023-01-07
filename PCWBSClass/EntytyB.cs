@@ -5,9 +5,9 @@ using System.Text;
 
 namespace Entityclass
 {
-    public class EntytyA : BaseClass
+    public class EntityB : BaseClass
     {
 
-        public long? FKEntityB { get; set; }
+        public string XXX { get; set; }
     }
 }

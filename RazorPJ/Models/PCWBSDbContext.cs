@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using EntityAclass;
+using Entityclass;
 
 
 namespace Razor.Models
@@ -10,5 +10,6 @@ namespace Razor.Models
         {
         }
         public DbSet<EntytyA> Entity_A { get; set; }
+        public DbSet<EntityB> Entity_B { get; set; }
     }
 }

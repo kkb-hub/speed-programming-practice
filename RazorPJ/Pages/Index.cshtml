@@ -1,7 +1,7 @@
 @page
 @using Razor.Models
 @using Razor.Controllers
-@using EntityAclass
+@using Entityclass
 
 <h2>Home</h2>
 
@@ -16,7 +16,12 @@
         .Key("PK"))
     .Columns(columns => {
         columns.AddFor(m => m.PK).AllowEditing(false);
-        columns.AddFor(m => m.FKEntityB);
+        columns.AddFor(m => m.FKEntityB).Lookup(lookup =>
+        lookup.DataSource(d => d.Mvc()
+            .Controller("EntityBwithBase")
+            .LoadAction("Get"))
+        .ValueExpr("PK")
+        .DisplayExpr("XXX"));
     })
     .Editing(e => e.AllowAdding(true).AllowUpdating(true).AllowDeleting(true))
     .Export(e => e.Enabled(true))
