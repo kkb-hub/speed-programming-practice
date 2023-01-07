@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using PCWBSClass;
-//using ConsoleApp;
+using EntityAclass;
 
 
 namespace Razor.Models
@@ -9,10 +8,7 @@ namespace Razor.Models
     {
         public PCWBSDbContext(DbContextOptions options) : base(options)
         {
-
         }
-        public DbSet<PCWBS> PCWBS { get; set; }
-        //public DbSet<TestCodeClass> TestCode { get; set; }
-
+        public DbSet<EntytyA> Entity_A { get; set; }
     }
 }

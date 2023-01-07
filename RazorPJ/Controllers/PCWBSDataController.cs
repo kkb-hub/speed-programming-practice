@@ -1,4 +1,4 @@
-using PCWBSClass;
+using EntityAclass;
 using FSESpeedProgrammingLib;
 using Razor.Models;
 
@@ -6,7 +6,7 @@ using Razor.Models;
 namespace Razor.Controllers
 {
 
-    public class PCWBSwithBaseController : ApiBaseController<PCWBSDbContext, PCWBS>
+    public class PCWBSwithBaseController : ApiBaseController<PCWBSDbContext, EntytyA>
     {
         public PCWBSwithBaseController(PCWBSDbContext context) : base(context)
         {
