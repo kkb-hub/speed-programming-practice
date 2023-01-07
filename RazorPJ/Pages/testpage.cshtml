@@ -1,0 +1,31 @@
+@page
+@*@model TestModel*@
+@using Razor.Models
+@using Razor.Controllers
+@*@using DevExtremeAspNetCoreApp1.Models*@
+@*@using TagListClass*@
+@*@using ConsoleApp*@
+@using PCWBSClass
+
+<h2>Home</h2>
+
+@(Html.DevExtreme().DataGrid<PCWBS>()
+    .ShowBorders(true)
+    .DataSource(d => d.Mvc()
+    .Controller("PCWBSwithBase")
+        .LoadAction("Get")
+        .InsertAction("Insert")
+        .UpdateAction("Update")
+        .DeleteAction("Delete")
+        .Key("PK"))
+    .Columns(columns => {
+@*        columns.AddFor(m => m.PK).AllowEditing(false);
+        columns.AddFor(m => m.ID).AllowEditing(false);*@
+        columns.AddFor(m => m.FKTestCode);
+        columns.AddFor(m => m.CODE);
+        @*columns.AddFor(m => m.CreatedByName);*@
+      @*  columns.AddFor(m => m.ShipCountry);
+        columns.AddFor(m => m.ShipCity);*@
+    })
+    .Editing(e => e.AllowAdding(true).AllowUpdating(true).AllowDeleting(true))
+)
