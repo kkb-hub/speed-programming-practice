@@ -1,0 +1,28 @@
+@page
+@using Razor.Models
+@using Razor.Controllers
+@using Entityclass
+
+<h2>Home</h2>
+
+@(Html.DevExtreme().DataGrid<EntytyA>()
+    .ShowBorders(true)
+    .DataSource(d => d.Mvc()
+    .Controller("PCWBSwithBase")
+        .LoadAction("Get")
+        .InsertAction("Insert")
+        .UpdateAction("Update")
+        .DeleteAction("Delete")
+        .Key("PK"))
+    .Columns(columns => {
+        columns.AddFor(m => m.PK).AllowEditing(false);
+        columns.AddFor(m => m.FKEntityB).Lookup(lookup =>
+        lookup.DataSource(d => d.Mvc()
+            .Controller("EntityBwithBase")
+            .LoadAction("Get"))
+        .ValueExpr("PK")
+        .DisplayExpr("XXX"));
+    })
+    .Editing(e => e.AllowAdding(true).AllowUpdating(true).AllowDeleting(true))
+    .Export(e => e.Enabled(true))
+)
