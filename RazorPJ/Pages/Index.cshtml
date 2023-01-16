@@ -5,7 +5,7 @@
 
 <h2>Home</h2>
 
-@(Html.DevExtreme().DataGrid<EntytyA>()
+@(Html.DevExtreme().DataGrid<Tb1>()
     .ShowBorders(true)
     .DataSource(d => d.Mvc()
     .Controller("PCWBSwithBase")
@@ -16,12 +16,16 @@
         .Key("PK"))
     .Columns(columns => {
         columns.AddFor(m => m.PK).AllowEditing(false);
-        columns.AddFor(m => m.FKEntityB).Lookup(lookup =>
+        columns.AddFor(m => m.b);
+        columns.AddFor(m => m.c);
+        columns.AddFor(m => m.d);
+        columns.AddFor(m => m.e);
+        columns.AddFor(m => m.FKTb2).Lookup(lookup =>
         lookup.DataSource(d => d.Mvc()
             .Controller("EntityBwithBase")
             .LoadAction("Get"))
         .ValueExpr("PK")
-        .DisplayExpr("XXX"));
+        .DisplayExpr("ee"));
     })
     .Editing(e => e.AllowAdding(true).AllowUpdating(true).AllowDeleting(true))
     .Export(e => e.Enabled(true))
