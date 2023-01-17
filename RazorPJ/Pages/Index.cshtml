@@ -2,18 +2,14 @@
 @using Razor.Models
 @using Razor.Controllers
 @using Entityclass
+@using FSESpeedProgrammingLib.Helpers;
 
 <h2>Home</h2>
 
 @(Html.DevExtreme().DataGrid<Tb1>()
     .ShowBorders(true)
-    .DataSource(d => d.Mvc()
-    .Controller("PCWBSwithBase")
-        .LoadAction("Get")
-        .InsertAction("Insert")
-        .UpdateAction("Update")
-        .DeleteAction("Delete")
-        .Key("PK"))
+    .DataSource(d => d.Mvc())
+    .Build("PCWBSwithBase", "Get", 10)
     .Columns(columns => {
         columns.AddFor(m => m.PK).AllowEditing(false);
         columns.AddFor(m => m.b);
