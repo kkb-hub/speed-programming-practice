@@ -9,7 +9,7 @@ namespace Razor.Models
         public PCWBSDbContext(DbContextOptions options) : base(options)
         {
         }
-        public DbSet<EntytyA> Entity_A { get; set; }
-        public DbSet<EntityB> Entity_B { get; set; }
+        public DbSet<Tb1> Tb1 { get; set; }
+        public DbSet<Tb2> Tb2 { get; set; }
     }
 }

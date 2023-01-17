@@ -1,14 +1,14 @@
 ﻿using DevExtreme.AspNet.Data;
 using DevExtreme.AspNet.Mvc;
+using FSESpeedProgrammingLib.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Entityclass;
 
-namespace FSESpeedProgrammingLib
+namespace FSESpeedProgrammingLib.Controllers
 {
     [ApiController]
     [Route("api/[controller]/[action]")]
@@ -38,6 +38,8 @@ namespace FSESpeedProgrammingLib
         {
             var newObject = new M();
             JsonConvert.PopulateObject(values, newObject);
+            newObject.CreatedByName = "DemoUser";
+            newObject.CreatedByID = Guid.Empty;
 
             if (!TryValidateModel(newObject))
                 return BadRequest(GetFullErrorMessage());
@@ -60,6 +62,8 @@ namespace FSESpeedProgrammingLib
         {
             var editObject = context.Set<M>().First(a => a.PK == key);
             JsonConvert.PopulateObject(values, editObject);
+            editObject.UpdatedByName = "DemoUser";
+            editObject.UpdatedByID = Guid.Empty;
 
             if (!TryValidateModel(editObject))
                 return BadRequest(GetFullErrorMessage());
