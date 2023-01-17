@@ -22,9 +22,18 @@
     .Export(e => e.Enabled(true))
 )
 
-@*.Lookup(lookup =>
-        lookup.DataSource(d => d.Mvc()
-            .Controller("EntityBwithBase")
-            .LoadAction("Get"))
-        .ValueExpr("PK")
-        .DisplayExpr("ee"));*@
+@(Html.DevExtreme().DataGrid<Tb2>()
+    .ShowBorders(true)
+    .DataSource(d => d.Mvc())
+    .Build("EntityBwithBase", "Get", 10)
+    .Columns(columns => {
+        columns.AddFor(m => m.PK).AllowEditing(false);
+        columns.AddFor(m => m.aa);
+        columns.AddFor(m => m.bb);
+        columns.AddFor(m => m.cc);
+        columns.AddFor(m => m.dd);
+        columns.AddFor(m => m.ee);
+    })
+    .Editing(e => e.AllowAdding(true).AllowUpdating(true).AllowDeleting(true))
+    .Export(e => e.Enabled(true))
+)
