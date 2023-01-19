@@ -30,7 +30,7 @@ namespace RazorPJ
                 .AddRazorPages()
                 .AddJsonOptions(options => options.JsonSerializerOptions.PropertyNamingPolicy = null);
                 //services.AddDbContext<PCWBSDbContext>(options => options.UseSqlServer(@"Data Source=JC73751\SQLEXPRESS; Initial Catalog = FullStackEngi1; User ID=sa; Password=88888888; Connect Timeout=30; Encrypt=False; TrustServerCertificate=False; ApplicationIntent=ReadWrite; MultiSubnetFailover=False"));
-                services.AddDbContext<PCWBSDbContext>(options => options.UseSqlServer(@"Data Source=JC73751\SQLEXPRESS;Initial Catalog=TestForSP2;User ID=sa;Password=88888888;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"));
+                services.AddDbContext<PCWBSDbContext>(options => options.UseSqlServer(@"Data Source=JC73751\SQLEXPRESS;Initial Catalog=TestForSP5;User ID=sa;Password=88888888;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
